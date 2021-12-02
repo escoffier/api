@@ -24,6 +24,7 @@ bash ${CODEGEN_PKG}/generate-groups.sh "client,lister,informer" \
 github.com/escoffier/api/pkg/generated \
 github.com/escoffier/api/pkg/apis \
 "cluster:v1" \
+--output-base "$(dirname "${BASH_SOURCE[0]}")/../../../.." \
 --go-header-file "${SCRIPT_ROOT}"/hack/boilerplate.go.txt 
 #--go-header-file /home/robbie/workspace/cluster-manager/hack/boilerplate.go.txt 
 
