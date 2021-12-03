@@ -29,22 +29,23 @@ type ClientConfig struct {
 	// KeyData holds PEM-encoded bytes.
 	KeyData []byte `json:"keyData,omitempty"`
 	// CAData holds PEM-encoded bytes.
-	CAData     []byte `json:"cAData,omitempty"`
-	SecretName string `json:"secretName,omitempty"`
+	CAData []byte `json:"cAData,omitempty"`
 }
 
 // ManagedClusterSpec defines the desired state of ManagedCluster
 type ManagedClusterSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
-
 	ClientConfig ClientConfig `json:"clientConfig"`
+	ClusterKey   string       `json:"clusterKey"`
 }
 
 // ManagedClusterStatus defines the observed state of ManagedCluster
 type ManagedClusterStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	SecretName string `json:"secretName,omitempty"`
+	Accepted   bool   `json:"accepted"`
 }
 
 // +genclient
